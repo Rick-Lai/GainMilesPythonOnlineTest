@@ -12,7 +12,7 @@ def welcome():
     return '<h1>Welcome to the items database</h1>'
 
 @app.route('/item', methods=['GET'])
-def get_emps():
+def get_items():
     con = db_connect()
     cur = con.cursor()
     rows = cur.execute('select * from records').fetchall()
@@ -20,7 +20,7 @@ def get_emps():
     return jsonify(rows)
 
 @app.route('/item/', methods=['POST'])
-def add_emp():
+def add_item():
     con = db_connect()
     cur = con.cursor()
     new_item = request.get_json()
